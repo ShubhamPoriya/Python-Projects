@@ -1,0 +1,18 @@
+import pygame
+
+# initialize the pygame
+pygame.init()
+
+# create the screen
+screen = pygame.display.set_mode((800,600))
+
+# runnong game
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+pygame.display.set_caption("Space Invaders")
+icon = pygame.image.load(r"C:\Users\shubh\Downloads\startup.png")
+pygame.display.set_icon(icon)   
