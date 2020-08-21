@@ -1,0 +1,74 @@
+# Stone paper scissor Game
+import random
+
+player = 0
+computer = 0
+loop = False
+tools = ["stone", "paper", "scissor"]
+tool_player = None
+tool_computer = random.choice(tools)
+
+def display():
+    print("STONE - PAPER - SCISSOR")
+    return
+
+def turn_handle():
+    global loop
+    global tool_player
+    tool_player = input("Enter the tool : Stone, Paper, Scissor or q to quit - ").lower()
+    print("computer:", tool_computer)
+
+    if tool_player in tools:
+        pass
+    elif tool_player == "q":
+        loop == True
+    else:
+        print("Enter a correct tool name: ")
+    return
+
+
+def game(tool_player, tool_computer):
+
+    global player
+    global computer
+
+    if tool_player == "stone" and tool_computer == "paper":
+        computer += 1
+        print("Computer wins.")
+    elif tool_player == "stone" and tool_computer == "scissor":
+        player += 1
+        print("You win.")
+    elif tool_player == "paper" and tool_computer == "stone":
+        player += 1
+        print("You win.")
+    elif tool_player == "paper" and tool_computer == "scissor":
+        computer += 1
+        print("Computer wins")
+    elif tool_player == "scissor" and tool_computer == "paper":
+        player += 1
+        print("You win.")
+    elif tool_player == "scissor" and tool_computer == "stone":
+        computer += 1
+        print("Computer wins.")
+    elif tool_player == tool_computer:
+        print("Tie.")
+
+    return
+
+def scores():
+    global player
+    global computer
+
+    print("Your score:", player)
+    print("Computer score:", computer)
+
+def play_game():
+
+    display()
+
+    while not loop:
+        turn_handle()
+        game(tool_player, tool_computer)
+        scores()
+
+    return
